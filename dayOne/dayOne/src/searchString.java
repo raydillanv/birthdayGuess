@@ -34,7 +34,9 @@ public class searchString
         Scanner input = new Scanner(System.in);
         System.out.println("What would you like to search? \n");
         String searchQuery = input.next();
-        printGoogleSearch(searchQuery);
+        //printGoogleSearch(searchQuery);
+
+        printTranslation(searchQuery);
     }
 
     /**
@@ -70,6 +72,36 @@ public class searchString
             for(Element h3 : headings) {
                 // System.out.println(h3.text());
                 Element link = h3.parent();
+                // System.out.println(link.text());
+                Elements siblings = link.children();
+                for(Element child : siblings) {
+                    System.out.println(child.text());
+
+                }
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Take a String search and Print a Translation Search of the given search.
+     * Scraped from a translation Website //(jishow.org)
+     */
+    public static void printTranslation(String search)
+    {
+        try {
+            search = search.replaceAll(" ", "+").toLowerCase();
+            search = search.trim();
+            //System.out.println(search);
+
+            Document doc = Jsoup.connect("https://jisho.org/search/" + search).get();
+
+            Elements headings = doc.select("#main_results");
+            for(Element portion : headings) {
+                // System.out.println(h3.text());
+                Element link = portion.parent();
                 // System.out.println(link.text());
                 Elements siblings = link.children();
                 for(Element child : siblings) {

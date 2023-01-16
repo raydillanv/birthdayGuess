@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/dayOneRevise.iml" filepath="$PROJECT_DIR$/dayOneRevise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dayOne.iml" filepath="$PROJECT_DIR$/dayOne.iml" />
     </modules>
   </component>
 </project>
